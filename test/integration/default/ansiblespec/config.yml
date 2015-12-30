@@ -1,0 +1,15 @@
+---
+-
+  playbook: default.yml
+  kitchen_path: '/tmp/kitchen'
+  pattern: 'ansiblespec'    # or spec or serverspec
+  user: ubuntu
+  ssh_key: 'spec/insecure_key/insecure_key'
+
+# -
+#   playbook: nameserver.yml
+#   inventory: hosts
+#   kitchen_path: '/tmp/kitchen'
+#   pattern: 'ansiblespec'    # or spec or serverspec
+#   user: ubuntu
+#   ssh_key: 'spec/insecure_key/insecure_key'

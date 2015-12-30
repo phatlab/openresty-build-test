@@ -8,6 +8,7 @@ driver:
 provisioner:
   name: ansible_playbook
   roles_path: roles
+  hosts: localhost
   ansible_version: latest
   ansible_verbose: true
   ansible_verbosity: 4
@@ -20,25 +21,33 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
-    driver_plugin: docker
+    driver:
+      image: ubuntu:14.04
+      platform: ubuntu
+      instance_name: ansible
+      publish_all: true
+  # - name: ansible
+  #   driver_plugin: docker
+  #   driver:
+  #     image: ubuntu:14.04
+  #     platform: ubuntu
+  #     instance_name: ansible.openresty.dev
+  #     publish_all: true
+  #     # links: "opsboy.openresty.dev:opsboy.openresty.dev"
 
 verifier:
+  name: busser
+  plugin:
+  - Ansiblespec
   ruby_bindir: '/usr/bin'
 
 suites:
-  - name: opsboy-roles
+  - name: ansible
     driver_config:
-      instance_name: opsboy-roles
-      publish_all: true
-      use_cache: true
-      hostname: opsboy.local
-      instance_name: opsboy.local
-      network:
-      - [ 'private_network', { ip: '172.28.128.6' } ]
-      - ['public_network']
+      hostname: ansible.openresty.dev
 
   # - name: opsboy
+  #   excludes:
+  #     - ansible
   #   driver_config:
-  #     instance_name: opsboy-roles
-  #     publish_all: true
-  #     use_cache: true
+  #     hostname: opsboy.openresty.dev

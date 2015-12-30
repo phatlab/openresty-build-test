@@ -1,7 +1,6 @@
 ---
 - name: Opsboy caching nameserver
-  hosts: all
-  remote_user: ubuntu
+  hosts: localhost
   sudo: yes
 
   vars:
