@@ -1,0 +1,44 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  ssh:
+    pty: true
+
+provisioner:
+  name: ansible_playbook
+  roles_path: roles
+  ansible_version: latest
+  ansible_verbose: true
+  ansible_verbosity: 4
+  require_ansible_repo: true
+  require_chef_for_busser: false
+  require_ruby_for_busser: true
+  private_key: spec/insecure_key/insecure_key
+  ansible_host_key_checking: false
+  ansible_connection: ssh
+
+platforms:
+  - name: ubuntu-14.04
+    driver_plugin: docker
+
+verifier:
+  ruby_bindir: '/usr/bin'
+
+suites:
+  - name: opsboy-roles
+    driver_config:
+      instance_name: opsboy-roles
+      publish_all: true
+      use_cache: true
+      hostname: opsboy.local
+      instance_name: opsboy.local
+      network:
+      - [ 'private_network', { ip: '172.28.128.6' } ]
+      - ['public_network']
+
+  # - name: opsboy
+  #   driver_config:
+  #     instance_name: opsboy-roles
+  #     publish_all: true
+  #     use_cache: true

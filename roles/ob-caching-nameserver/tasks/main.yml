@@ -1,0 +1,4 @@
+---
+# tasks file for roles/ob-caching-nameserver
+- include: debian.yml
+  when: ansible_os_family  == "Debian"

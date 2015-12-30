@@ -1,2 +1,1 @@
-# openresty-build-test
-An experiment with test kitchen and docker
+Nothing to see here (yet). Move along. 
