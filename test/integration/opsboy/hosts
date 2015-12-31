@@ -1,2 +1,5 @@
-[opsboy]
+[ansible]
 localhost ansible_connection=local
+
+[opsboy]
+opsboy.openresty.dev

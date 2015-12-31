@@ -1,7 +1,6 @@
 ---
 -
   playbook: default.yml
-  inventory: hosts
   kitchen_path: '/tmp/kitchen'
   pattern: 'ansiblespec'    # or spec or serverspec
   user: ubuntu

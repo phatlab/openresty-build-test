@@ -26,14 +26,6 @@ platforms:
       platform: ubuntu
       instance_name: ansible
       publish_all: true
-  # - name: ansible
-  #   driver_plugin: docker
-  #   driver:
-  #     image: ubuntu:14.04
-  #     platform: ubuntu
-  #     instance_name: ansible.openresty.dev
-  #     publish_all: true
-  #     # links: "opsboy.openresty.dev:opsboy.openresty.dev"
 
 verifier:
   name: busser
@@ -42,7 +34,7 @@ verifier:
   ruby_bindir: '/usr/bin'
 
 suites:
-  - name: ansible
+  - name: opsboy
     driver_config:
       hostname: ansible.openresty.dev
 
